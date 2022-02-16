@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="uncaught-exception-handling-jvm-1.0-SNAPSHOT">
+    <output-path>$PROJECT_DIR$/build/libs</output-path>
+    <root id="archive" name="uncaught-exception-handling-jvm-1.0-SNAPSHOT.jar">
+      <element id="module-output" name="uncaught-exception-handling.jvmMain" />
+    </root>
+  </artifact>
+</component>
