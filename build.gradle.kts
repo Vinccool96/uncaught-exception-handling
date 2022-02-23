@@ -1,9 +1,10 @@
 plugins {
     kotlin("multiplatform") version "1.6.20-M1"
+    id("convention.publication")
 }
 
 group = "io.github.vinccool96.uncaught"
-version = "1.0-SNAPSHOT"
+version = "1.0"
 
 repositories {
     mavenCentral()
@@ -35,7 +36,6 @@ kotlin {
         else -> throw GradleException("Host OS is not supported in Kotlin/Native.")
     }
 
-    
     sourceSets {
         val commonMain by getting
         val commonTest by getting {
