@@ -37,10 +37,15 @@ val javadocJar by tasks.registering(Jar::class) {
 fun getExtraString(name: String) = ext[name]?.toString()
 
 publishing {
+    // Configure maven central repository
     repositories {
         maven {
             name = "sonatype"
             setUrl("https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/")
+            credentials {
+                username = getExtraString("ossrhUsername")
+                password = getExtraString("ossrhPassword")
+            }
         }
     }
 
@@ -51,12 +56,8 @@ publishing {
 
         pom {
 
-            name.set("Uncaught Exception Handling")
-            description.set(
-                "Ever wanted to use something looking like Java's " +
-                        "Thread.currentThread().getUncaughtExceptionHandler().uncaughtException(Thread.currentThread(), e);? Well now " +
-                        "you can!"
-            )
+            name.set("uncaught-exception-handling")
+            description.set("Ever wanted to use something looking like Java's Thread.currentThread().getUncaughtExceptionHandler().uncaughtException(Thread.currentThread(), e);? Well now you can!")
             url.set("https://github.com/Vinccool96/uncaught-exception-handling")
 
             licenses {
@@ -75,6 +76,8 @@ publishing {
                 }
             }
             scm {
+                connection.set("scm:git:github.com/Vinccool96/uncaught-exception-handling.git")
+                developerConnection.set("scm:git:ssh://github.com/Vinccool96/uncaught-exception-handling.git")
                 url.set("https://github.com/Vinccool96/uncaught-exception-handling")
             }
         }
