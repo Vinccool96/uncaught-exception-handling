@@ -4,7 +4,7 @@ internal actual object Factory {
 
     private val properties: ThreadProperties by lazy {
         ThreadProperties { e: Throwable ->
-            e.printStackTrace()
+            console.warn(e.stackTraceToString())
         }
     }
 
